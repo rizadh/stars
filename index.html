@@ -111,7 +111,9 @@
         }
 
         function promptDensity() {
-            density = parseFloat(prompt("New density (default: 1)")) || 1;
+            density = parseFloat(prompt(
+                `Enter a new density (default: 1, current: ${density})`
+            )) || density;
             localStorage.density = density;
             dimensionsHaveChanged = true;
         }
