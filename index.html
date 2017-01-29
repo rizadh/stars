@@ -109,15 +109,18 @@
             return (t) => yShift + amplitude * Math.sin(2 * Math.PI * (t + phaseShift) / period);
         }
 
+        function promptDensity() {
+            density = parseFloat(prompt("New density (default: 1)")) || 1;
+            dimensionsHaveChanged = true;
+        }
+
         // Prevent any zoom or scrolling on mobile devices
         document.addEventListener('gesturestart', (e) => e.preventDefault());
         document.addEventListener('touchmove', (e) => e.preventDefault());
 
         window.addEventListener('resize', () => dimensionsHaveChanged = true);
-        window.addEventListener('click', () => {
-            density = parseFloat(prompt("New density (default: 1)")) || 1;
-            dimensionsHaveChanged = true;
-        });
+        window.addEventListener('click', promptDensity);
+        window.addEventListener('touchend', promptDensity);
         window.addEventListener('load', render);
     </script>
 </body>
