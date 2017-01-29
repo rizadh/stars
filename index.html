@@ -24,7 +24,7 @@
         const scale = window.devicePixelRatio || 1;
 
         let stars = [];
-        let density = 1;
+        let density = parseFloat(localStorage.density) || 1;
 
         let width;
         let height;
@@ -111,6 +111,7 @@
 
         function promptDensity() {
             density = parseFloat(prompt("New density (default: 1)")) || 1;
+            localStorage.density = density;
             dimensionsHaveChanged = true;
         }
 
