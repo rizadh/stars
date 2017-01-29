@@ -93,11 +93,13 @@
         }
 
         function hsl(hue, saturation, lightness) {
-            return `hsl(${Math.round(hue)}, ${saturation}%, ${lightness}%)`;
+            return `hsl(${Math.round(hue)},${Math.round(saturation)}%,` +
+                `${Math.round(lightness)}%)`;
         }
 
         function hsla(hue, saturation, lightness, alpha) {
-            return `hsla(${Math.round(hue)}, ${saturation}%, ${lightness}%, ${alpha})`;
+            return `hsl(${Math.round(hue)},${Math.round(saturation)}%,` +
+                `${Math.round(lightness)}%, ${alpha})`;
         }
 
         function generateSine(min, max, phaseShift, period) {
